@@ -67,8 +67,17 @@ public class KisoKadai1 {
 		for(int i=1; i<=a; i++){
 			System.out.println();
 			for(int j=1; j<=b; j++){
-
-				System.out.print(i*j+"\t");
+				if(i*j<1000){
+					System.out.print("\t");
+				}
+				if(i*j<100){
+					System.out.print("\t");
+				}
+				if(i*j<10){
+					System.out.print("\t");
+				}
+				System.out.print("\t");
+				System.out.print(i*j);
 			}
 		}
 	}
