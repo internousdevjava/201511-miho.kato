@@ -1,4 +1,7 @@
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 /**
  *
@@ -16,8 +19,206 @@ public class KisoKadai3 {
 	public static void main(String[] args) {
 		// TODO 自動生成されたメソッド・スタブ
 
+		String select=null;
+		int sel=0;
+		String select2=null;
+		int sel2=0;
+		String dir=null;
+		String filename=null;
+
+		System.out.println("作業を始めます");
+			System.out.println("フォルダ内のディレクトリを表示します。");
+			String path = new File(".").getAbsoluteFile().getParent();//現在の位置
+	        System.out.println(path);//
+			File file = new File("C:\\Users\\internous\\Desktop\\");
+	        File files[] = file.listFiles();
+
+	        //取得した一覧を表示する
+	        for (int i=0; i<files.length; i++) {
+	            System.out.println("ファイル" + (i+1) + "→" + files[i]);
+	        }
+	        System.out.println("\n\n");
+
+
+		while(sel==0){
+			System.out.println("1 現在のフォルダで作業");
+			System.out.println("2 フォルダを再指定");
+			System.out.println("3 終了");
+			try{
+				BufferedReader	br=new	BufferedReader(new InputStreamReader(System.in));
+
+				select=br.readLine();
+				sel = Integer.parseInt(select);
+			}
+			catch(Exception e){
+					e.printStackTrace();
+			}
+
+			while(sel<=2 || sel<0){
+
+				if(sel==1){
+					System.out.println("現在のフォルダで作業");
+				}
+				else if(sel==2){
+					System.out.println("フォルダの再指定");
+					System.out.println("フォルダを指定して下さい。");
+					System.out.println("例 : C:\\Users\\internous\\Desktop\\");
+					String	fol3=null;
+					File	fol4=null;
+					try{
+						BufferedReader	br=new	BufferedReader(new InputStreamReader(System.in)); //(System.in)コンソールから文字列を受け付ける
+						fol3=br.readLine();
+					}
+					catch(Exception e){
+							e.printStackTrace();
+					}
+					File fol4=new File(file.getParent());
+					if(fol4.exists()){
+						System.out.println("フォルダがありません。:"+file.getAbsolutePath());
+						fol4.mkdirs();
+						System.out.println("新規でフォルダを作成しました。");
+					}
+					else {
+						System.out.println("フォルダは既に存在します。");
+					}
+
+				}
+				else if(sel==0){
+					System.out.println("終了1");
+				}
+				else{
+					System.out.println("入力が間違っています。");
+				}
+			}
+
+
+
+			while(sel==0){
+				System.out.println("ファイルを指定します。");
+				System.out.println("ファイル名を入力して下さい。");
+				 File newfile = new File("C:\\Users\\internous\\Desktop\\KisoKadai"+filename+".txt");
+
+				 try {
+					 if(file.exists()){
+							System.out.println("ファイルは既に存在します。\n" + file.getAbsolutePath());
+					}
+					 else if (newfile.createNewFile()){
+						 System.out.println("ファイルの作成に成功しました。\n"+filename+".txtというファイル名で作成されました。");
+					 }
+			         else {
+			                System.out.println("ファイルの作成に失敗しました。");
+			         }
+				 }
+			     catch (IOException e) {
+			    	 System.out.println("例外が発生しました。");
+			     }
+			}
+
+
+
+			while(sel==0){
+				 System.out.println("書き込み方法を選択してください。");
+				 System.out.println("1 上書き");
+				 System.out.println("2 追記");
+				 System.out.println("0 終了");
+
+				try{
+					BufferedReader	br=new	BufferedReader(new InputStreamReader(System.in));
+
+					select2=br.readLine();
+					sel2 = Integer.parseInt(select2);
+				}
+				catch(Exception e){
+						e.printStackTrace();
+				}
+
+				if(sel2==1){
+					System.out.println("上書き");
+
+			}
+
+
+
+
+
+
+
+		}
+			System.out.println("作業がすべて終了しました。");
+
+				/*
+			        */
+
+
+
+				/*File file = new File("test.txt");
+			    String path = file.getAbsolutePath();
+			    System.out.println("現在のファイルのパス\n" + path);
+
+			    while(sel==0){
+			    	System.out.println("作業方法を指定してください。");
+			    	System.out.println("1 上書き");
+			    	System.out.println("2 追記");
+			    	System.out.println("終了");
+
+			    	if(sel==1){
+
+			    	}
+			    }*/
+
+
+			/*
+			 try {
+							boolean mode = false;
+							System.out.println("記述方法を選択して下さい。");
+							System.out.println("1 追記");
+							System.out.println("2 上書き");
+							System.out.println("3 終了");
+							BufferedReader br2 = new BufferedReader(new InputStreamReader(System.in));
+							String str = br2.readLine();
+
+							st=Integer.parseInt(str);
+							// モードを決める
+
+							if(st==1){
+								mode = true;
+							}
+							else if(st==2){
+								mode = false;
+							}
+							else if(st==0){
+								System.out.println("");
+							}
+							else{
+								System.out.println("入力が間違っています。");
+							}
+
+							//出力先を作成する
+							FileWriter fw = new FileWriter(file.getAbsolutePath(), mode);
+							PrintWriter pw = new PrintWriter(new BufferedWriter(fw));
+
+							//内容を指定する
+							BufferedReader br3 = new BufferedReader(new InputStreamReader(System.in));
+							String str2 = br3.readLine();
+							pw.println(str2);
+
+							//ファイルに書き出す
+							pw.close();
+
+							//終了メッセージを画面に出力する
+							System.out.println("出力が完了しました。");
+
+						}
+						catch (IOException ex) {
+							//例外時処理
+							ex.printStackTrace();
+						}
+			 * */
+		}
+
 
 		/*
+
 		String filename=null;
 
 		System.out.print("ファイル名を入力して下さい→");
@@ -71,7 +272,7 @@ public class KisoKadai3 {
 				fol = Integer.parseInt(folder);
 				*/
 
-
+/*
 
 
 				if(fol==1){
@@ -93,6 +294,8 @@ public class KisoKadai3 {
 			    		}
 
 
+
+
 			        	/*File file = new File(args[0]);
 		// ディレクトリパスを取得する
 		File dir=new File(file.getParent());
@@ -109,7 +312,7 @@ public class KisoKadai3 {
 
 
 
-
+			    	/*
 
 				}
 				else if(fol==2){
@@ -129,7 +332,7 @@ public class KisoKadai3 {
 		}while(!(fol==3));
 
 
-
+		*/
 
 		/*System.out.println("\n\nディレクトリを表示して指定します。");
 		//ファイル名の一覧を取得する
@@ -412,5 +615,7 @@ public class KisoKadai3 {
 
 	    return false;
 	    */
+	}
+	}
 	}
 }
