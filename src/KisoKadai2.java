@@ -31,6 +31,7 @@ public class KisoKadai2 {
 			System.out.println("1～100の数値を入力して下さい！");
 
 			do{
+				do{//
 
 				try{
 					BufferedReader	br=new	BufferedReader(new InputStreamReader(System.in)); //(System.in)コンソールから文字列を受け付ける
@@ -58,6 +59,7 @@ public class KisoKadai2 {
 				}
 
 				a = Integer.parseInt(kazu);
+				}while(a<0 || a<=100);
 
 
 				if(a<0 || a<=100){
