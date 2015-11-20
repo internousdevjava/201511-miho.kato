@@ -60,7 +60,7 @@ public class KisoKadai2 {
 				a = Integer.parseInt(kazu);
 
 
-				if(a<0 || a<100){
+				if(a<0 || a<=100){
 
 					if(a<r){
 						System.out.println("正解の数より小さいです");
