@@ -57,12 +57,10 @@ public class KisoKadai1 {
 
 		}while(a<=0 || a>100 || b<=0 || b>100);
 
-		int max=Math.max(a, b);
-		int min=Math.min(a, b);
 
-		for(int i=min; i<=max; i++){
+		for(int i=1; i<=a; i++){
 			System.out.println();
-			for(int j=min; j<=max; j++){
+			for(int j=1; j<=b; j++){
 
 				System.out.print(i*j+"\t");
 			}
