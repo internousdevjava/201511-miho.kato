@@ -29,13 +29,16 @@ public class KisoKadai1 {
 				System.out.println("1～100の数値を入力して下さい！");
 
 				try{
-					BufferedReader	br=new	BufferedReader(new InputStreamReader(System.in)); //(System.in)コンソールから文字列を受け付ける
-
+					BufferedReader	br=new	BufferedReader(new InputStreamReader(System.in));
 
 						if(c==0){
 							c++;
 						}
 						else{
+							if(a<0 || a>100 || b<0 || b>100){
+								System.out.println("正しい数値を入れてください！");
+							}
+
 							System.out.println("もう一度入力して下さい！\n");
 						}
 
@@ -46,16 +49,21 @@ public class KisoKadai1 {
 						//System.out.println("1～100の数値を入力して下さい！");
 						System.out.print("Y:");
 						str2=br.readLine();
+
+						a = Integer.parseInt(str1);
+						b = Integer.parseInt(str2);
+
 				}
 				catch(Exception e){
 					e.printStackTrace();
+
+					System.out.println("正しい数値を入れてください！");
+
+
 				}
 
-				a = Integer.parseInt(str1);
-				b = Integer.parseInt(str2);
-
-
 		}while(a<=0 || a>100 || b<=0 || b>100);
+
 
 
 		for(int i=1; i<=a; i++){
@@ -66,5 +74,7 @@ public class KisoKadai1 {
 			}
 		}
 	}
+
+
 
 }
