@@ -45,14 +45,12 @@ public class KisoKadai1 {
 						//System.out.println("1～100の数値を入力して下さい！");
 						System.out.print("X:");
 						str1=br.readLine();
+						a = Integer.parseInt(str1);
 
 						//System.out.println("1～100の数値を入力して下さい！");
 						System.out.print("Y:");
 						str2=br.readLine();
-
-						a = Integer.parseInt(str1);
 						b = Integer.parseInt(str2);
-
 				}
 				catch(Exception e){
 					e.printStackTrace();
