@@ -1,5 +1,7 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -18,20 +20,15 @@ public class KisoKadai2 {
 		// TODO 自動生成されたメソッド・スタブ
 
 
-		String kazu = null;
-
+		String str1 = null;
 		int a = 0;
 		int r;
-		int c=0;
-
-
+		int c = 0;
 
 		r= new java.util.Random().nextInt(100);
 		do{
-			System.out.println("1～100の数値を入力して下さい！");
-
-			do{
-				do{//
+			//do{//
+				System.out.println("1～100の数値を入力して下さい！");
 
 				try{
 					BufferedReader	br=new	BufferedReader(new InputStreamReader(System.in)); //(System.in)コンソールから文字列を受け付ける
@@ -40,48 +37,47 @@ public class KisoKadai2 {
 						c++;
 					}
 
-					else{
-						if(a<0 || a>100){
-							System.out.println("正しい数値を入れてください！");
-						}
-						System.out.println("もう一度入力して下さい！\n");
-
-					}
-
-					//System.out.println("1～100の数値を入力して下さい！");
 					System.out.print("入力値:");
-					kazu=br.readLine();
+					str1=br.readLine();
 
-
+					if(!(isNumber(str1)) || a<0 || a>100){
+						System.out.println("正しい数値を入れてください！\n");
+						continue;
+					}
+					a = Integer.parseInt(str1);
 				}
+
 				catch(Exception e){
 					e.printStackTrace();
 				}
 
-				a = Integer.parseInt(kazu);
-				}while(a<0 || a<=100);
 
+			//}while(isNumber(str1) && a<0 || a>=100);
 
-				if(a<0 || a<=100){
-
-					if(a<r){
-						System.out.println("正解の数より小さいです");
-					}
-
-					else if(a>r){
-						System.out.println("正解の数より大きいです");
-					}
-
-					else{
-						System.out.println("正解です！");
-					}
+			if(a>0 && a<=100){
+				if(a==r){
+					System.out.println("正解です！");
 				}
 
-			}while(!(a==r));
+				else if(a<r){
+					System.out.println("正解の数より小さいです\n");
+				}
 
+				else if(a>r){
+					System.out.println("正解の数より大きいです\n");
+				}
+			}
 
-
+			else{
+				System.out.println("入力が間違っています\n");
+			}
 		}while(!(a==r));
-
 	}
+
+	public static boolean isNumber(String val) {
+        String regex = "\\A[-]?[0-9]+\\z";
+        Pattern p = Pattern.compile(regex);
+        Matcher m1 = p.matcher(val);
+        return m1.find();
+    }
 }

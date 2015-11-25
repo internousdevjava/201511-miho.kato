@@ -30,8 +30,8 @@ public class KisoKadai1 {
 
 	do{
 		System.out.println("1～100の数値を入力して下さい！");
-		boolean st1=false;
-		boolean st2=false;
+		//boolean st1=false;
+		//boolean st2=false;
 
 			try{
 				BufferedReader	br=new	BufferedReader(new InputStreamReader(System.in)); //(System.in)コンソールから文字列を受け付ける
