@@ -8,19 +8,16 @@ import java.util.regex.Pattern;
  */
 
 /**
- * @author internous
+ * @author 美穂
  *
  */
 public class KisoKadai1 {
-
-	private static final boolean isNumber = false;
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		// TODO 自動生成されたメソッド・スタブ
-
 		String str1 = null;
 		String str2 = null;
 
@@ -94,4 +91,5 @@ public class KisoKadai1 {
         Matcher m1 = p.matcher(val);
         return m1.find();
     }
+
 }
